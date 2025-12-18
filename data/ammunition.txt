@@ -1,0 +1,38 @@
+# Knight Equipment Data File
+# Format: TYPE|name|weight|price|specific_parameters
+# Types: HELMET, CHESTPLATE, SHIELD, SWORD, SPEAR, RING, CROWN
+
+# Helmets: TYPE|name|weight|price|protection|coverage|hasVisor
+HELMET|Iron Helmet|3.5|150|25|80|true
+HELMET|Steel Helmet|4.2|300|35|85|true
+HELMET|Bronze Helmet|3.0|100|20|75|false
+
+# Chestplates: TYPE|name|weight|price|protection|coverage|isOnepiece
+CHESTPLATE|Iron Chestplate|12.0|500|50|90|true
+CHESTPLATE|Steel Chestplate|14.5|1000|70|95|true
+CHESTPLATE|Leather Armor|6.0|200|25|70|false
+
+# Shields: TYPE|name|weight|price|protection|coverage|shape
+SHIELD|Wooden Shield|4.0|80|15|40|Round
+SHIELD|Iron Shield|8.0|250|35|50|Kite
+SHIELD|Tower Shield|15.0|400|45|70|Rectangle
+
+# Swords: TYPE|name|weight|price|damage|bladeLength
+SWORD|Short Sword|2.5|200|35|60
+SWORD|Long Sword|3.5|400|50|90
+SWORD|Excalibur|4.0|2000|85|100
+
+# Spears: TYPE|name|weight|price|damage|spearLength
+SPEAR|Simple Spear|4.0|150|40|180
+SPEAR|Pike|6.5|300|55|250
+SPEAR|Lance|5.5|450|60|220
+
+# Rings: TYPE|name|weight|price|buff|debuff|fingerSize
+RING|Ring of Strength|0.1|500|+10 STR|None|18
+RING|Ring of Speed|0.1|600|+15 AGI|-5 STR|17
+RING|Ring of Wisdom|0.1|700|+20 INT|-10 STR|19
+
+# Crowns: TYPE|name|weight|price|buff|debuff|royaltyType
+CROWN|Baron's Crown|1.5|3000|+5 CHA|None|Baron
+CROWN|King's Crown|2.0|10000|+15 CHA|-5 AGI|King
+CROWN|Emperor's Crown|2.5|25000|+25 CHA|-10 AGI|Emperor
