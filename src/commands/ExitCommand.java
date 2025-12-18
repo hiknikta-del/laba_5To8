@@ -1,13 +1,16 @@
 package commands;
 
+import utils.AppLogger;
+
 public class ExitCommand implements Command {
 
     public ExitCommand() {
-        // Не потрібен scanner - він закривається в Main
     }
 
     @Override
     public void execute() {
+        AppLogger.logInfo("User initiated exit. Shutting down.");
+
         System.out.println("\n╔════════════════════════════════════════════════╗");
         System.out.println("║         Thank you for using our system!        ║");
         System.out.println("║              Goodbye, brave knight!            ║");

@@ -3,26 +3,38 @@ package main;
 import arsenal.Arsenal;
 import commands.*;
 import knight.Knight;
+import utils.AppLogger;
 import utils.FileManager;
 
 import java.util.Scanner;
 
-/**
- * Головний клас програми для управління спорядженням лицаря.
- * Реалізує консольне меню з використанням паттерну Command.
- */
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        // ЛОГЕР: Початок роботи
+        AppLogger.logInfo("Application started. User: Mykola Shandro");
 
-        // Привітання
+        Scanner scanner = new Scanner(System.in);
         printWelcomeBanner();
 
-        // Створення основних об'єктів
+        // ================================================================
+        // === ТЕСТ КРИТИЧНОЇ ПОМИЛКИ (ДЛЯ ДЕМОНСТРАЦІЇ ЛОГЕРА) ===
+        // ================================================================
+        System.out.println("Performing startup system checks...");
+        try {
+            // Навмисно створюємо критичну ситуацію
+            throw new RuntimeException("Secure connection to database server failed (Simulated)");
+        } catch (RuntimeException e) {
+            // Цей метод запише в файл ТА викличе "надсилання пошти" в термінал
+            AppLogger.logCritical("Startup Check Failed", e);
+        }
+        System.out.println("System recovered. Continuing in offline mode...\n");
+        // ================================================================
+
+
+        // Далі йде звичайний код програми...
         Knight knight = new Knight("Sir Lancelot");
         Arsenal arsenal = new Arsenal();
 
-        // Пропонуємо завантажити дані при старті
         System.out.println("Would you like to load default ammunition data? (y/n)");
         String response = scanner.nextLine().trim().toLowerCase();
 
@@ -32,9 +44,7 @@ public class Main {
             FileManager.loadAmunitionFromFile(arsenal, defaultFile);
         }
 
-        // === Меню управління лицарем та арсеналом ===
         Menu knightMenu = new Menu("KNIGHT & ARSENAL MANAGEMENT", scanner);
-
         knightMenu.addCommand(1, new ShowAllAmunitionCommand(arsenal));
         knightMenu.addCommand(2, new SortByPriceCommand(arsenal));
         knightMenu.addCommand(3, new SortByWeightCommand(arsenal));
@@ -47,24 +57,18 @@ public class Main {
         knightMenu.addCommand(10, new SaveToFileCommand(arsenal, scanner));
         knightMenu.addCommand(0, new BackToMainMenuCommand());
 
-        // === Головне меню ===
         Menu mainMenu = new Menu("MAIN MENU", scanner);
-
         mainMenu.addCommand(1, new OpenKnightManagerCommand(knightMenu));
         mainMenu.addCommand(2, new InfoReferenceCommand());
         mainMenu.addCommand(3, new ExitCommand());
 
-        // Запуск програми
         mainMenu.run();
     }
 
-    /**
-     * Виводить банер привітання
-     */
     private static void printWelcomeBanner() {
         System.out.println("╔════════════════════════════════════════════════╗");
         System.out.println("║    KNIGHT EQUIPMENT MANAGEMENT SYSTEM v2.0     ║");
-        System.out.println("║           Equip your knight for battle         ║");
+        System.out.println("║            Equip your knight for battle        ║");
         System.out.println("╚════════════════════════════════════════════════╝");
         System.out.println();
     }
