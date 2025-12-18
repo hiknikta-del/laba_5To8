@@ -18,4 +18,13 @@ public abstract class Armor extends Amunition {
     public double getCoverage() {
         return coverage;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s | Protection: %.1f | Coverage: %.1f%% | %s",
+                super.toString(),
+                protection,
+                coverage,
+                getClass().getSimpleName());
+    }
 }

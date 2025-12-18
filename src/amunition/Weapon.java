@@ -18,4 +18,13 @@ public abstract class Weapon extends Amunition {
     public boolean isTwoHanded() {
         return isTwoHanded;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s | Damage: %.1f | %s | %s",
+                super.toString(),
+                damage,
+                isTwoHanded ? "Two-handed" : "One-handed",
+                getClass().getSimpleName());
+    }
 }

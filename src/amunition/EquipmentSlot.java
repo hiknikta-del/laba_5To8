@@ -1,24 +1,20 @@
 package amunition;
 
 public enum EquipmentSlot {
-    HEAD(null),
-    CHEST(null),
-    LEFT_HAND(null),
-    RIGHT_HAND(null),
-    LEFT_RING(null),
-    RIGHT_RING(null);
+    HEAD("Head"),
+    CHEST("Chest"),
+    LEFT_HAND("Left Hand"),
+    RIGHT_HAND("Right Hand"),
+    LEFT_RING("Left Ring"),
+    RIGHT_RING("Right Ring");
 
-    private Amunition amunition;
+    private final String displayName;
 
-    EquipmentSlot(Amunition amunition) {
-        this.amunition = amunition;
+    EquipmentSlot(String displayName) {
+        this.displayName = displayName;
     }
 
-    public Amunition getAmunition() {
-        return amunition;
-    }
-
-    public void setAmunition(Amunition amunition) {
-        this.amunition = amunition;
+    public String getDisplayName() {
+        return displayName;
     }
 }

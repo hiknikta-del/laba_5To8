@@ -18,4 +18,13 @@ public abstract class Enchantments extends Amunition {
     public String getDebuff() {
         return debuff;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s | Buff: %s | Debuff: %s | %s",
+                super.toString(),
+                buff != null ? buff : "None",
+                debuff != null ? debuff : "None",
+                getClass().getSimpleName());
+    }
 }

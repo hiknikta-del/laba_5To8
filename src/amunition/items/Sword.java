@@ -1,7 +1,7 @@
 package amunition.items;
 
-import amunition.EquipmentSlot;
 import amunition.Weapon;
+import amunition.EquipmentSlot;
 import java.util.Set;
 
 public class Sword extends Weapon {

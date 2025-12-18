@@ -1,4 +1,6 @@
-package amunition;
+ package amunition;
+
+import amunition.EquipmentSlot;
 
 import java.util.Set;
 
