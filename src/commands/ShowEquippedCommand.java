@@ -3,7 +3,7 @@ package commands;
 import knight.Knight;
 
 public class ShowEquippedCommand implements Command {
-    private Knight knight;
+    private final Knight knight;
 
     public ShowEquippedCommand(Knight knight) {
         this.knight = knight;

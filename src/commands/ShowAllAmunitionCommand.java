@@ -3,17 +3,17 @@ package commands;
 import arsenal.Arsenal;
 
 public class ShowAllAmunitionCommand implements Command {
-    private Arsenal arsenal;
+    private final Arsenal arsenal;
 
     public ShowAllAmunitionCommand(Arsenal arsenal) {
         this.arsenal = arsenal;
     }
 
-
     @Override
     public void execute() {
-        System.out.println("\n=== ALL AMMUNITION ===");
+        System.out.println();
         arsenal.showAmunition();
+        System.out.println();
     }
 
     @Override

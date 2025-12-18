@@ -2,17 +2,20 @@ package commands;
 
 import knight.Knight;
 
+/**
+ * @deprecated Використовуйте InteractiveUnequipCommand для інтерактивного режиму
+ */
+@Deprecated
 public class UnequipKnightCommand implements Command {
-    private Knight knight;
+    private final Knight knight;
 
     public UnequipKnightCommand(Knight knight) {
         this.knight = knight;
     }
 
-
     @Override
     public void execute() {
-        knight.unequip(null);
+        System.out.println("Please use 'Unequip Item (Interactive)' option from the menu.");
     }
 
     @Override
